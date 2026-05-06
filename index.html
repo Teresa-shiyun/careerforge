@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CareerForge MVP</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">CF</div>
+          <div>
+            <h1>CareerForge</h1>
+            <p>本地化职业项目规划器</p>
+          </div>
+        </div>
+
+        <nav class="nav-list" aria-label="主要功能">
+          <a href="#workspace" class="nav-link active">工作台</a>
+          <a href="#insights" class="nav-link">匹配洞察</a>
+          <a href="#projects" class="nav-link">项目生成</a>
+          <a href="#report" class="nav-link">报告导出</a>
+        </nav>
+
+        <section class="metric-panel">
+          <span>综合匹配度</span>
+          <strong id="matchScore">0%</strong>
+          <div class="meter">
+            <div id="scoreMeter"></div>
+          </div>
+        </section>
+      </aside>
+
+      <section class="content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">No API · Local-first · Portfolio-ready</p>
+            <h2>把简历和岗位描述变成可执行的项目路线图</h2>
+          </div>
+          <div class="top-actions">
+            <button id="loadDemo" class="ghost-button" type="button">载入示例</button>
+            <button id="analyzeBtn" class="primary-button" type="button">分析匹配</button>
+          </div>
+        </header>
+
+        <section id="workspace" class="workspace-grid">
+          <article class="input-panel">
+            <div class="section-title">
+              <h3>你的背景</h3>
+              <span id="resumeCount">0 字</span>
+            </div>
+            <textarea id="resumeInput" placeholder="粘贴简历、课程经历、项目经历、技术栈或自我介绍..."></textarea>
+          </article>
+
+          <article class="input-panel">
+            <div class="section-title">
+              <h3>目标岗位</h3>
+              <span id="jobCount">0 字</span>
+            </div>
+            <textarea id="jobInput" placeholder="粘贴目标岗位 JD，或描述你想申请的方向，例如 AI 产品经理、全栈工程师、云计算研发..."></textarea>
+          </article>
+        </section>
+
+        <section id="insights" class="insight-grid">
+          <article class="panel">
+            <div class="section-title">
+              <h3>技能雷达</h3>
+              <span>自动抽取</span>
+            </div>
+            <div id="skillRadar" class="skill-radar empty-state">等待分析</div>
+          </article>
+
+          <article class="panel">
+            <div class="section-title">
+              <h3>缺口优先级</h3>
+              <span>按影响排序</span>
+            </div>
+            <div id="gapList" class="gap-list empty-state">还没有缺口数据</div>
+          </article>
+        </section>
+
+        <section id="projects" class="panel">
+          <div class="section-title">
+            <h3>可写进 CV 的项目建议</h3>
+            <div class="segmented">
+              <button class="segment active" data-mode="balanced" type="button">平衡</button>
+              <button class="segment" data-mode="technical" type="button">技术深度</button>
+              <button class="segment" data-mode="product" type="button">产品表达</button>
+            </div>
+          </div>
+          <div id="projectList" class="project-list empty-state">分析后生成 3 个项目方案</div>
+        </section>
+
+        <section id="report" class="report-grid">
+          <article class="panel">
+            <div class="section-title">
+              <h3>CV 表述生成器</h3>
+              <span>STAR + 指标化</span>
+            </div>
+            <div id="bulletList" class="bullet-list empty-state">等待生成</div>
+          </article>
+
+          <article class="panel">
+            <div class="section-title">
+              <h3>导出</h3>
+              <span>本地文件</span>
+            </div>
+            <p class="muted">生成一份 JSON 报告，适合放入 GitHub release、作品集页面或后续接入真实 LLM API。</p>
+            <button id="exportBtn" class="primary-button full" type="button">导出分析报告</button>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
