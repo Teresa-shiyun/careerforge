@@ -56,7 +56,7 @@ Open `index.html` in a browser.
 
 ## Screenshots / Results Preview
 
-TODO: add screenshots for the input page, skill gap view and generated project plan.
+![CareerForge dashboard](docs/assets/careerforge-dashboard.png)
 
 ## Future Improvements / 后续改进
 
